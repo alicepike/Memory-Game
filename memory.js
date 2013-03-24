@@ -48,22 +48,30 @@ $("#small").on("click", function(){
     var previousBox = 0;
     $(".column").on("click", function(event){
     $(event.target).find("span").css("display", "block");
+   });
 
    
         // start timer
-        var startCountdown = function() {
+        var startTimer = function() {
 
-        //start ticking every second, and on tick:
+        //start ticking every second
         var $clock = $("<span class='clock'>00:00</span>")
         $("#header").append($clock);
-          //update the display
-          var secondsEllapsed = 0;
+        var secondsEllapsed = 0;
+        var tick = function() {
+          secondsEllapsed += 1000;
+          $clock.text(secondsEllapsed.toFixed(2));
+
+          var ticker = setInterval(tick, 1000);
+          
+  };
 
         };
 
         var whenWon = function() {
           //on winning
           var unmatchedBoxes = 10;
+          var unmatchedBoxes = unmatchedBoxes - 2;
 
           if(unmatchedBoxes === 0) {
             //stop the clock
@@ -75,15 +83,15 @@ $("#small").on("click", function(){
        // on second click IF
       // spans match, add won class
 
-      if(previousBox >== 1) {
-        $("span").addClass("won");
-      }
-      // ELSE hide previous span
-      else {
-        $("span").css("display", "none");
-      }
-  
-  });
+     $("span").on("click", function(event){
+         if(previousBox >== 1) {
+          $("span").addClass("won");
+        }
+        // ELSE hide previous span
+        else {
+          $("span").css("display", "none");
+        }
+     });       
  
 });
 
