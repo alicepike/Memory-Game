@@ -49,17 +49,7 @@ $("#small").on("click", function(){
     $(".column").on("click", function(event){
     $(event.target).find("span").css("display", "block");
 
-    // on second click IF
-      // spans match, add won class
-
-      if(previousBox === 1) {
-        $("span").addClass("won");
-      }
-      // ELSE hide previous span
-      else {
-        $("span").css("display". "none");
-      }
-
+   
         // start timer
         var startCountdown = function() {
 
@@ -81,6 +71,17 @@ $("#small").on("click", function(){
           }
             
         };
+
+       // on second click IF
+      // spans match, add won class
+
+      if(previousBox >== 1) {
+        $("span").addClass("won");
+      }
+      // ELSE hide previous span
+      else {
+        $("span").css("display", "none");
+      }
   
   });
  
